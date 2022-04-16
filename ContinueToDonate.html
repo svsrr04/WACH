@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
 <head>
 <title>Donate Now</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 .button {
@@ -20,15 +43,14 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         border-radius: 6px;
         outline: none;
       }
-</style>
-</head>
-<body class="w3-theme-l5">
-
+</style></head>
+<body>
 <!-- Navbar -->
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="https://weallcanhelp.blogspot.com/" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Home</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa w3-margin-right"></i>Donate Now</a>
   </div>
  </div>
 </div>
@@ -86,42 +108,10 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       
     <!-- End Middle Column -->
     </div>
-    
-    <!-- Right Column -->
-    <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Upcoming Events:</p>
-          <img src="/w3images/forest.jpg" alt="logo of charity" style="width:100%;">
-          <p><strong>Donation to <br>
-          ... Charity</strong></p>
-          <p>-<br>-</p>
-          
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Total Donars</p>         
-          <h3>-</h3>
-          
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-        <p>Upcoming<br>donation Date</p>
-        <p>-</p>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-        <p></i></p>
-      </div>
-      
-    <!-- End Right Column -->
-    </div>
+      <!-- Right Column -->
+
+<div class="w3-col m2" w3-include-html="https://svsrr04.github.io/WACH/Right%20column%20temple.html"></div> 
+ </div>
     
   <!-- End Grid -->
   </div>
@@ -129,32 +119,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 <!-- End Page Container -->
 </div>
 <br>
-
- 
 <script>
-// Accordion
-function myFunction(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-    x.previousElementSibling.className += " w3-theme-d1";
-  } else { 
-    x.className = x.className.replace("w3-show", "");
-    x.previousElementSibling.className = 
-    x.previousElementSibling.className.replace(" w3-theme-d1", "");
-  }
-}
-
-// Used to toggle the menu on smaller screens when clicking on the menu button
-function openNav() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+includeHTML();
 </script>
 
 </body>
-</html> 
+</html>
