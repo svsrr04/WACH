@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+<head>
+<title>List of Donations</title>
+	<head>
+<link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgB0zV0qOkKwOkSMDEvt1SZIRtiqDPNrhYtsu9kF2UZ-44jcKT9iph-fhPBJgu5_igq6LayA9w8n5PINCuSdQ9p_HpISlg_DE9mp-o4kVDp_q6Eo84JZ2l90J7QmLQie6ZGAK1j9CjxDpRCGjf4Aqo9PqK5FEx_GYy2g8dchrSLKWiRKVaFz2r1lsVhZA/s155/logo-icon.png">
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+.button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #1aa3ff;
+        border-radius: 6px;
+        outline: none;
+      }
+.fa {
+  font-size: 20px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}      
+</style></head>
+<body>
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-medium w3-right w3-padding-medium w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="https://weallcanhelp.blogspot.com/" class="w3-bar-item w3-button w3-padding-medium w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Home</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-medium w3-theme-d4"><i class="fa fa w3-margin-right"></i>Donations List</a>
+  </div>
+ </div>
+</div>
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">About WACH</h4>
+         <p class="w3-center"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSEypIDSw9Jg8MhE-DPiuJ3DgoBn8Guy4stD2UmtBQ7KlkyFNvn_ndH3YER6ot0E-ML6Eh6HeEZNFejqQxKrMX7-Dcjwu0rxupVNWr5hE8rvUrX66lsvPNYNwDd1m1z99xuRXezpZJlsrf9J2gR4gbX2jUDY-Zj2g4YCCniJmVohgvVdFlfRTnP_CfGA/s200/1649930054211.png" width="100" height="100"/></p>
+         <hr>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>India</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>April 22, 2022</p>
+	<p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>team.weallcanhelp@gmail.com</p>
+        </div>
+      </div>
+      <br>
+      
+      
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>This is Team WACH</p>
+      </div>
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-container w3-card w3-white w3-round w3-margin">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFOWrUwUdSZiSK1cpPNclsQ6JNFwc3zRJhFX4BRI8n6bIrC2u3ilvlDtoA5xIIm82L8-LcnYPxwXwgOt53m_vUIxnF15k3OziAuFDaGGcOj5ZZ6ig0nwE-b9HK96tU8vCXxmS685pkTahe6NMiJl03vb0HdKPacev4B2HUL-c6SSLOjekYAv6Q-n7wRA/s556/1649930054146.png" width="280" height="100">
+        <span class="w3-right w3-opacity">Update Today</span>        
+        <hr class="w3-clear">
+        <H4>List of all donations made<text style="color:red">*</text></H4> 
+<hr style="height:1px;border-width:0;background-color:blue">           
+  <table class="table table-striped">
+    <thead>
+      <tr class="info">
+	<th>Id#</th> 
+        <th>Date</th>
+        <th>Name of charity</th>
+        <th>Donation Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+	<td>201</td>
+        <td>Date</td>
+        <td>Charity Name</td>
+        <td>Donation Amount</td>
+      </tr>
+      <tr>
+	<td>202</td>
+        <td>Date</td>
+        <td>Charity Name</td>
+        <td>Donation Amount</td>
+      </tr>
+      <tr>
+	<tr class="success">
+        <td colspan="3"><center>Total Amount Donated : </center></td>
+	<td> INR</td>
+	</tr>
+    </tbody>
+  </table>
+  <br>
+  <center><h3 style="color: green"> Thanks for your <br>Love and Support...</h3></center>
+        <center><i class="fa fa-heart" style="font-size:48px;color:red"></i></center>
+        <br>
+
+        
+      </div>
+      
+      
+    <!-- End Middle Column -->
+    </div>
+    
+      <!-- Right Column -->
+
+<div class="w3-col m2" w3-include-html="https://svsrr04.github.io/WACH/RightCol.html"></div> 
+ </div>
+    
+  <!-- End Grid -->
+  </div>
+<!-- Footer -->
+<br>
+  <footer class="w3-container w3-padding-25 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSR8AQevUEnlYAJndeMru7dmljJQFS0yAQRwJNC8a-j7Bd9uOj6E2kVELuV8Nney2KxrEWM9yevi5qe2tfWQ8tH3Yx73qXBcKN1kZZamiXmyPuhOUceECfJ2DwMbzVJ_2dVT-IQQ0ROrlUOV_XLG5Rza5K6BshqOrI_SYAvX6omNl0RZseKw_6OSJMog/s556/cover-red-removebg-preview.png" alt="logo" width="160" height="60"/>
+      <h4>Team WACH</h4>
+    </div>
+    <div class="w3-third">
+      <h3>Contact Us</h3>        
+          <p>Email: <a href="mailto:team.weallcanhelp@gmail.com">team.weallcanhelp@gmail.com</a></p>        
+    </div>
+    <!--Social Media--> 
+   <div class="w3-third">
+      <h3>Connect With Us</h3>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="https://bit.ly/3vt0Rhp" class="fa fa-instagram"></a>
+      <a href="https://bit.ly/3Oh8D6R" class="fa fa-twitter"></a>
+      <a href="mailto:team.weallcanhelp@gmail.com" class="fa fa-google"></a>
+    </div>
+<!--End of Social Media--> 
+
+
+  </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-12">Copyright &copy; 2022 | All rights reserved.</div>
+
+<!-- End page content -->
+
+</div>
+<script>
+includeHTML();
+</script>
+
+</body>
+</html>
